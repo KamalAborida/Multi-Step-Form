@@ -120,57 +120,11 @@ stepContent.set("3", [
 ])
 
 function changeContent() {
-  if (stepNumber == 0) {
-    titleDiv.innerHTML = stepContent.get("0")[0]
-    contentDiv.innerHTML = stepContent.get("0")[1]
-  } else if (stepNumber == 1) {
-    titleDiv.innerHTML = stepContent.get(`1`)[0]
-    contentDiv.innerHTML = stepContent.get(`1`)[1]
-    const plans = new plansMod.plans(
-      document.getElementById("mnth-year-togg"),
-      document.getElementById("monthly"),
-      document.getElementById("yearly"),
-      document.getElementById("arcade"),
-      document.getElementById("pro"),
-      document.getElementById("advanced"),
-      monthlyPayment,
-      document.querySelectorAll(".plan-price")
-    )
-    plans.arcade.addEventListener("click", plans.setActive.bind(plans))
-    plans.pro.addEventListener("click", plans.setActive.bind(plans))
-    plans.advanced.addEventListener("click", plans.setActive.bind(plans))
-    plans.toggler.addEventListener("click", plans.pricingTimeHandler.bind(plans))
-  } else if (stepNumber == 2) {
-    const addOns = new addOnsMod.addOns(monthlyPayment)
-    titleDiv.innerHTML = stepContent.get(`2`)[0]
-    contentDiv.innerHTML = stepContent.get(`2`)[1]
-  } else if (stepNumber == 3) {
-    titleDiv.innerHTML = stepContent.get(`3`)[0]
-    contentDiv.innerHTML = stepContent.get(`3`)[1]
-  }
+  
 }
 
 function stepsHandler() {
-  for (let i = 0; i < steps.length; i++) {
-    if (steps[i].classList.contains("active")) {
-      if (steps[i + 1]) {
-        steps[i].classList.toggle("active")
-        steps[i + 1].classList.toggle("active")
-        stepNumber = i + 1
-        changeContent()
-        break
-      } else {
-        steps[i].classList.toggle("active")
-        steps[0].classList.toggle("active")
-        stepNumber = 0
-        changeContent()
-        break
-      }
-    } else {
-      continue
-    }
-  }
+  
 }
 
-changeContent()
 nextBtn.addEventListener("click", stepsHandler)
