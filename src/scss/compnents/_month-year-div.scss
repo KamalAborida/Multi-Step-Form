@@ -1,0 +1,15 @@
+.month-year-div {
+  display: flex;
+  justify-content: space-around;
+  // border: 2px solid red;
+  background-color: $alabaster;
+  margin: 40px auto 20px auto;
+  padding: 1.5em;
+  border-radius: 10px;
+  color: $cool-gray;
+
+  .active-paying-time {
+    color: $marine-blue;
+    font-weight: map-get($font-weights, "bold");
+  }
+}

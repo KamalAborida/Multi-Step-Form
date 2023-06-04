@@ -1,0 +1,56 @@
+@import "../abstracts/variables";
+
+.main-sec {
+  // border: 2px solid yellow;
+  // position: static;
+
+  &__content {
+    position: absolute;
+    top: 18%;
+    // border: 10px solid black;
+    border-radius: 10px;
+    background-color: white;
+    width: 90%;
+    padding: 2em 1.5em;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.129);
+
+    &__title-div {
+      // border: 2px solid red;
+      margin: 20px 0 30px 0;
+
+      h1 {
+        margin-bottom: 10px;
+        color: $marine-blue;
+        font-weight: map-get($font-weights, "bold");
+        font-size: 2rem;
+      }
+
+      p {
+        color: $cool-gray;
+        line-height: 1.5em;
+        font-weight: map-get($font-weights, "normal");
+      }
+    }
+
+    &__main-div {
+      // border: 2px solid blue;
+    }
+  }
+
+  &__btn-div {
+    // border: 2px solid green;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    // margin: 20px auto;
+    // left: 50%;
+    // transform: translate(-50%, 0);
+    background-color: white;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    box-shadow: 1px -1px 20px 1px rgba(0, 0, 0, 0.11);
+  }
+}

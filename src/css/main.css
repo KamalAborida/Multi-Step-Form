@@ -1,0 +1,277 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+html {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+}
+
+.circle {
+  border-radius: 100%;
+}
+
+.step {
+  display: flex;
+}
+.step__div-right {
+  display: none;
+}
+.step .circle {
+  border: 2px solid white;
+}
+
+.active .circle {
+  background-color: hsl(231, 100%, 99%);
+}
+
+.btn {
+  background-color: hsl(213, 96%, 18%);
+  padding: 1em 1.5em;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.plan {
+  display: flex;
+  justify-content: flex-start;
+  border: 2px solid gainsboro;
+  padding: 1em;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+.plan div {
+  display: grid;
+  grid-template-areas: "icon name" "icon price";
+}
+.plan div .plan-name {
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+}
+.plan div .plan-price {
+  color: hsl(231, 11%, 63%);
+}
+.plan div img {
+  grid-area: icon;
+  margin-right: 20px;
+}
+
+.active-plan {
+  border: 2px solid hsl(243, 100%, 62%);
+  background-color: hsl(217, 100%, 97%);
+}
+
+.infoDivs {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.infoDivs label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+}
+.infoDivs input {
+  border: 1px solid hsl(231, 11%, 63%);
+  padding: 0.7em 1em;
+  font-weight: 700;
+  color: hsl(229, 24%, 87%);
+}
+
+.month-year-div {
+  display: flex;
+  justify-content: space-around;
+  background-color: hsl(231, 100%, 99%);
+  margin: 40px auto 20px auto;
+  padding: 1.5em;
+  border-radius: 10px;
+  color: hsl(231, 11%, 63%);
+}
+.month-year-div .active-paying-time {
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+}
+
+.toggler-mnth {
+  width: 40px;
+  height: 20px;
+  background-color: hsl(213, 96%, 18%);
+  border-radius: 20px;
+  position: relative;
+}
+.toggler-mnth::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 95%;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.toggler-year {
+  width: 40px;
+  height: 20px;
+  background-color: hsl(213, 96%, 18%);
+  border-radius: 20px;
+  position: relative;
+}
+.toggler-year::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 95%;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.addOn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid gainsboro;
+  padding: 1em;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+.addOn .square {
+  margin-right: 15px;
+}
+.addOn__info {
+  width: 60%;
+  margin-right: 25px;
+}
+.addOn__info__title {
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.addOn__info__details {
+  color: hsl(231, 11%, 63%);
+  font-size: 0.9rem;
+}
+.addOn__price {
+  width: -moz-min-content;
+  width: min-content;
+  color: hsl(243, 100%, 62%);
+}
+
+.square {
+  width: 20px;
+  height: 20px;
+  background-image: url("../assets/images/icon-checkmark.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid hsl(231, 11%, 63%);
+  border-radius: 5px;
+}
+
+.sidebar {
+  background: url("../assets/images/bg-sidebar-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  height: 200px;
+}
+.sidebar__steps-div {
+  width: 60%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+}
+.sidebar .circle {
+  padding: 0.4em 0.6em;
+}
+
+.main-sec__content {
+  position: absolute;
+  top: 18%;
+  border-radius: 10px;
+  background-color: white;
+  width: 90%;
+  padding: 2em 1.5em;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.129);
+}
+.main-sec__content__title-div {
+  margin: 20px 0 30px 0;
+}
+.main-sec__content__title-div h1 {
+  margin-bottom: 10px;
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+  font-size: 2rem;
+}
+.main-sec__content__title-div p {
+  color: hsl(231, 11%, 63%);
+  line-height: 1.5em;
+}
+.main-sec__btn-div {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+  box-shadow: 1px -1px 20px 1px rgba(0, 0, 0, 0.11);
+}
+
+body {
+  background-color: hsl(206, 94%, 87%);
+}

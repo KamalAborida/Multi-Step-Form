@@ -1,0 +1,20 @@
+.infoDivs {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+    color: $marine-blue;
+    font-weight: map-get($font-weights, "bold");
+  }
+
+  input {
+    border: 1px solid $cool-gray;
+    padding: 0.7em 1em;
+    font-weight: map-get($font-weights, "bold");
+    color: $light-gray;
+  }
+}

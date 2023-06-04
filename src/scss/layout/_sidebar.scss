@@ -1,0 +1,22 @@
+.sidebar {
+  background: url("../assets/images/bg-sidebar-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  // border: 2px solid black;
+
+  &__steps-div {
+    width: 60%;
+    margin: 20px auto;
+    // border: 2px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+  }
+
+  .circle {
+    padding: 0.4em 0.6em;
+  }
+}

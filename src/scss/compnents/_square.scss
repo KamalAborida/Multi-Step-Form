@@ -1,0 +1,10 @@
+.square{
+  width: 20px;
+  height: 20px;
+  background-image: url("../assets/images/icon-checkmark.svg");
+  // background-color: red;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid $cool-gray;
+  border-radius: 5px;
+}

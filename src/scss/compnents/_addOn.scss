@@ -1,0 +1,39 @@
+.addOn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid gainsboro;
+  padding: 1em;
+  margin-bottom: 15px;
+  border-radius: 10px;
+
+  .square{
+    margin-right: 15px;
+  }
+
+  &__info{
+    // border: 1px solid red;
+    // margin-left: 15px;
+    // justify-content: center;
+    // align-items: center;
+    width: 60%;
+    margin-right: 25px;
+
+    &__title{
+      color: $marine-blue;
+      font-weight: map-get($font-weights, "bold");
+      margin-bottom: 2px;
+    }
+
+    &__details{
+      color: $cool-gray;
+      font-size: 0.9rem;
+    }
+  }
+
+  &__price{
+    // border: 2px solid red;
+    width: min-content;
+    color: $purplish-blue;
+  }
+}

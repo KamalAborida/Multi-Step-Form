@@ -1,0 +1,19 @@
+@import '../abstracts/variables';
+
+.step {
+  display: flex;
+
+  &__div-right {
+    display: none;
+  }
+
+  .circle {
+    border: 2px solid white;
+  }
+}
+
+.active {
+  .circle {
+    background-color: $alabaster;
+  }
+}

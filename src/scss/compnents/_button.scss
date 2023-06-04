@@ -1,0 +1,8 @@
+.btn {
+  background-color: $marine-blue;
+  padding: 1em 1.5em;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  font-weight: map-get($font-weights, 'bold');
+}

@@ -1,0 +1,34 @@
+.plan {
+  display: flex;
+  justify-content: flex-start;
+  border: 2px solid gainsboro;
+  padding: 1em;
+  margin-bottom: 15px;
+  border-radius: 10px;
+
+  div {
+    display: grid;
+    grid-template-areas:
+      "icon name"
+      "icon price";
+
+    .plan-name {
+      color: $marine-blue;
+      font-weight: map-get($font-weights, "bold");
+    }
+
+    .plan-price {
+      color: $cool-gray;
+    }
+
+    img {
+      grid-area: icon;
+      margin-right: 20px;
+    }
+  }
+}
+
+.active-plan {
+  border: 2px solid $purplish-blue;
+  background-color: $magnolia;
+}
