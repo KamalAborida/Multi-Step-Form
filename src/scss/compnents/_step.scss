@@ -17,3 +17,28 @@
     background-color: $alabaster;
   }
 }
+
+@include media-query("desktop") {
+  .step {
+    display: flex;
+    // border: 2px solid red;
+    align-items: center;
+    width: 100%;
+  
+    &__div-right {
+      display: block;
+      margin-left: 20px;
+
+      p:first-of-type {
+        color: $cool-gray;
+        font-size: 0.8rem;
+        margin-bottom: 1px;
+      }
+
+      p:last-of-type {
+        color: white;
+        font-weight: map-get($font-weights, 'medium');
+      }
+    }
+  }
+}

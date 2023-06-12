@@ -26,9 +26,48 @@
       margin-right: 20px;
     }
   }
+
+  &:hover {
+    border: 2px solid $purplish-blue;
+    background-color: $magnolia;
+    cursor: pointer;
+  }
 }
 
 .active-plan {
   border: 2px solid $purplish-blue;
   background-color: $magnolia;
+}
+
+
+@include media-query("desktop") {
+  .plans-div {
+    display: flex;
+    justify-content: space-between;
+
+    .plan {
+      width: 30%;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        // border: 2px solid black;
+    
+        .plan-name {
+          margin-bottom: 10px;
+        }
+    
+        .plan-price {
+          margin-bottom: 10px;
+        }
+    
+        img {
+          margin-right: 0;
+          margin-bottom: 40px;
+          align-self: flex-start;
+        }
+      }
+    }
+  }
 }

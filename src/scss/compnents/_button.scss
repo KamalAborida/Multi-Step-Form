@@ -5,4 +5,9 @@
   border: 0;
   border-radius: 10px;
   font-weight: map-get($font-weights, 'bold');
+
+  &:hover {
+    background-color: $pastel-blue;
+    cursor: pointer;
+  }
 }

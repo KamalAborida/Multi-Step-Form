@@ -4,7 +4,7 @@
       @content;
     }
   } @else if $breakpoint == desktop {
-    @media (min-width: 1440px) {
+    @media (min-width: 1000px) {
       @content;
     }
   } @else {

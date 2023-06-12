@@ -70,6 +70,26 @@ html {
   background-color: hsl(231, 100%, 99%);
 }
 
+@media (min-width: 1000px) {
+  .step {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .step__div-right {
+    display: block;
+    margin-left: 20px;
+  }
+  .step__div-right p:first-of-type {
+    color: hsl(231, 11%, 63%);
+    font-size: 0.8rem;
+    margin-bottom: 1px;
+  }
+  .step__div-right p:last-of-type {
+    color: white;
+    font-weight: 500;
+  }
+}
 .btn {
   background-color: hsl(213, 96%, 18%);
   padding: 1em 1.5em;
@@ -77,6 +97,10 @@ html {
   border: 0;
   border-radius: 10px;
   font-weight: 700;
+}
+.btn:hover {
+  background-color: hsl(228, 100%, 84%);
+  cursor: pointer;
 }
 
 .plan {
@@ -102,12 +126,42 @@ html {
   grid-area: icon;
   margin-right: 20px;
 }
+.plan:hover {
+  border: 2px solid hsl(243, 100%, 62%);
+  background-color: hsl(217, 100%, 97%);
+  cursor: pointer;
+}
 
 .active-plan {
   border: 2px solid hsl(243, 100%, 62%);
   background-color: hsl(217, 100%, 97%);
 }
 
+@media (min-width: 1000px) {
+  .plans-div {
+    display: flex;
+    justify-content: space-between;
+  }
+  .plans-div .plan {
+    width: 30%;
+  }
+  .plans-div .plan div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .plans-div .plan div .plan-name {
+    margin-bottom: 10px;
+  }
+  .plans-div .plan div .plan-price {
+    margin-bottom: 10px;
+  }
+  .plans-div .plan div img {
+    margin-right: 0;
+    margin-bottom: 40px;
+    align-self: flex-start;
+  }
+}
 .infoDivs {
   margin-bottom: 20px;
   display: flex;
@@ -158,6 +212,9 @@ html {
   border-radius: 50%;
   background-color: white;
 }
+.toggler-mnth:hover {
+  cursor: pointer;
+}
 
 .toggler-year {
   width: 40px;
@@ -175,6 +232,9 @@ html {
   height: 95%;
   border-radius: 50%;
   background-color: white;
+}
+.toggler-year:hover {
+  cursor: pointer;
 }
 
 .addOn {
@@ -207,6 +267,14 @@ html {
   width: min-content;
   color: hsl(243, 100%, 62%);
 }
+.addOn:hover {
+  cursor: pointer;
+  border: 2px solid hsl(243, 100%, 62%);
+}
+
+.active-addOn {
+  border: 2px solid hsl(243, 100%, 62%);
+}
 
 .square {
   width: 20px;
@@ -216,6 +284,56 @@ html {
   background-repeat: no-repeat;
   border: 1px solid hsl(231, 11%, 63%);
   border-radius: 5px;
+}
+
+.active-square {
+  background-color: hsl(243, 100%, 62%);
+}
+
+.recipt {
+  background-color: hsl(229, 24%, 87%);
+  padding: 1em;
+  border-radius: 5px;
+}
+.recipt hr {
+  margin: 20px 0;
+}
+.recipt .link {
+  text-decoration: underline;
+}
+.recipt__label {
+  color: hsl(231, 11%, 63%);
+}
+.recipt__plan {
+  display: grid;
+  grid-template-areas: "plan price" "change price";
+  grid-gap: 5px;
+}
+.recipt__plan__currentPlan {
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+}
+.recipt__plan__price {
+  grid-area: price;
+  align-self: center;
+  justify-self: flex-end;
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+}
+.recipt__addOns {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.recipt__total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 1em;
+}
+.recipt__total__price {
+  color: hsl(243, 100%, 62%);
+  font-weight: 700;
 }
 
 .sidebar {
@@ -237,6 +355,28 @@ html {
   padding: 0.4em 0.6em;
 }
 
+@media (min-width: 1000px) {
+  .sidebar {
+    background: url("../assets/images/bg-sidebar-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    height: unset;
+    border-radius: 10px;
+    position: static;
+    width: 25%;
+    padding: 1em;
+  }
+  .sidebar__steps-div {
+    width: 100%;
+    margin: 0;
+    height: 60%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
 .main-sec__content {
   position: absolute;
   top: 18%;
@@ -272,6 +412,41 @@ html {
   box-shadow: 1px -1px 20px 1px rgba(0, 0, 0, 0.11);
 }
 
+@media (min-width: 1000px) {
+  main {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px auto;
+    background-color: white;
+    padding: 1em;
+    border-radius: 10px;
+    width: 70%;
+  }
+  .main-sec {
+    width: 70%;
+  }
+  .main-sec__content {
+    position: static;
+    top: 0;
+    border-radius: unset;
+    background-color: unset;
+    width: 100%;
+    left: 0;
+    transform: translate(0, 0);
+    box-shadow: unset;
+  }
+  .main-sec__btn-div {
+    position: static;
+    width: 100%;
+    background-color: unset;
+    box-shadow: unset;
+  }
+}
+@media screen and (min-width: 1300px) {
+  main {
+    width: 55%;
+  }
+}
 body {
   background-color: hsl(206, 94%, 87%);
 }

@@ -54,3 +54,48 @@
     box-shadow: 1px -1px 20px 1px rgba(0, 0, 0, 0.11);
   }
 }
+
+
+@include media-query('desktop') {
+  main {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px auto;
+    // border: 5px solid black;
+    background-color: white;
+    padding: 1em;
+    border-radius: 10px;
+    width: 70%;
+  }
+
+  .main-sec {
+    // border: 2px solid yellow;
+    width: 70%;
+  
+    &__content {
+      position: static;
+      top: 0;
+      border-radius: unset;
+      background-color: unset;
+      width: 100%;
+      left: 0;
+      transform: translate(0, 0);
+      box-shadow: unset;
+      // border: 2px solid red;
+    }
+  
+    &__btn-div {
+      // border: 2px solid red;
+      position: static;
+      width: 100%;
+      background-color: unset;
+      box-shadow: unset;
+    }
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  main {
+    width: 55%;
+  }
+}

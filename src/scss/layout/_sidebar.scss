@@ -20,3 +20,29 @@
     padding: 0.4em 0.6em;
   }
 }
+
+
+@include media-query("desktop") {
+  .sidebar {
+    background: url("../assets/images/bg-sidebar-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    height: unset;
+    border-radius: 10px;
+    position: static;
+    width: 25%;
+    padding: 1em;
+  
+    &__steps-div {
+      width: 100%;
+      margin: 0;
+      height: 60%;
+      // border: 2px solid black;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+}

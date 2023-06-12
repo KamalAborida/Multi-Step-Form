@@ -36,4 +36,13 @@
     width: min-content;
     color: $purplish-blue;
   }
+
+  &:hover {
+    cursor: pointer;
+    border: 2px solid $purplish-blue;
+  }
+}
+
+.active-addOn {
+  border: 2px solid $purplish-blue;
 }
