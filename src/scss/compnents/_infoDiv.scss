@@ -1,12 +1,12 @@
 .infoDivs {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
 
   label {
     display: block;
     margin-bottom: 5px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: $marine-blue;
     font-weight: map-get($font-weights, "bold");
   }
@@ -15,6 +15,20 @@
     border: 1px solid $cool-gray;
     padding: 0.7em 1em;
     font-weight: map-get($font-weights, "bold");
-    color: $light-gray;
+    color: $marine-blue;
+
+    &::placeholder {
+      color: $light-gray;
+    }
+  }
+}
+
+@include media-query('desktop') {
+  .infoDivs {
+    margin-bottom: 20px;
+  
+    label {
+      font-size: 0.8rem;
+    }
   }
 }

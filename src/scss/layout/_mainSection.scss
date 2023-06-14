@@ -2,9 +2,13 @@
 
 .main-sec {
   // border: 2px solid yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   // position: static;
 
   &__content {
+    font-size: 1rem;
     position: absolute;
     top: 18%;
     // border: 10px solid black;
@@ -24,13 +28,14 @@
         margin-bottom: 10px;
         color: $marine-blue;
         font-weight: map-get($font-weights, "bold");
-        font-size: 2rem;
+        font-size: 1.4rem;
       }
 
       p {
         color: $cool-gray;
         line-height: 1.5em;
         font-weight: map-get($font-weights, "normal");
+        font-size: 0.9rem;
       }
     }
 
@@ -66,6 +71,7 @@
     padding: 1em;
     border-radius: 10px;
     width: 70%;
+    height: 600px;
   }
 
   .main-sec {
@@ -73,6 +79,7 @@
     width: 70%;
   
     &__content {
+      font-size: 1rem;
       position: static;
       top: 0;
       border-radius: unset;
@@ -82,6 +89,14 @@
       transform: translate(0, 0);
       box-shadow: unset;
       // border: 2px solid red;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
     }
   
     &__btn-div {

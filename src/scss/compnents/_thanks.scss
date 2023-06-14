@@ -1,0 +1,16 @@
+.thank {
+  &-img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  &-title {
+    text-align: center;
+  }
+
+  &-content {
+    text-align: center;
+    line-height: 1.8em;
+  }
+}

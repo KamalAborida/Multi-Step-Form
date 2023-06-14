@@ -163,14 +163,14 @@ html {
   }
 }
 .infoDivs {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
 }
 .infoDivs label {
   display: block;
   margin-bottom: 5px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: hsl(213, 96%, 18%);
   font-weight: 700;
 }
@@ -178,9 +178,23 @@ html {
   border: 1px solid hsl(231, 11%, 63%);
   padding: 0.7em 1em;
   font-weight: 700;
+  color: hsl(213, 96%, 18%);
+}
+.infoDivs input::-moz-placeholder {
+  color: hsl(229, 24%, 87%);
+}
+.infoDivs input::placeholder {
   color: hsl(229, 24%, 87%);
 }
 
+@media (min-width: 1000px) {
+  .infoDivs {
+    margin-bottom: 20px;
+  }
+  .infoDivs label {
+    font-size: 0.8rem;
+  }
+}
 .month-year-div {
   display: flex;
   justify-content: space-around;
@@ -301,6 +315,10 @@ html {
 .recipt .link {
   text-decoration: underline;
 }
+.recipt .link:hover {
+  cursor: pointer;
+  color: hsl(213, 96%, 18%);
+}
 .recipt__label {
   color: hsl(231, 11%, 63%);
 }
@@ -334,6 +352,29 @@ html {
 .recipt__total__price {
   color: hsl(243, 100%, 62%);
   font-weight: 700;
+}
+
+.error {
+  color: red;
+  align-self: flex-end;
+  display: none;
+}
+
+.error-active {
+  display: block;
+}
+
+.thank-img {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.thank-title {
+  text-align: center;
+}
+.thank-content {
+  text-align: center;
+  line-height: 1.8em;
 }
 
 .sidebar {
@@ -377,7 +418,13 @@ html {
     align-items: flex-start;
   }
 }
+.main-sec {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .main-sec__content {
+  font-size: 1rem;
   position: absolute;
   top: 18%;
   border-radius: 10px;
@@ -395,11 +442,12 @@ html {
   margin-bottom: 10px;
   color: hsl(213, 96%, 18%);
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 .main-sec__content__title-div p {
   color: hsl(231, 11%, 63%);
   line-height: 1.5em;
+  font-size: 0.9rem;
 }
 .main-sec__btn-div {
   position: absolute;
@@ -421,11 +469,13 @@ html {
     padding: 1em;
     border-radius: 10px;
     width: 70%;
+    height: 600px;
   }
   .main-sec {
     width: 70%;
   }
   .main-sec__content {
+    font-size: 1rem;
     position: static;
     top: 0;
     border-radius: unset;
@@ -434,6 +484,12 @@ html {
     left: 0;
     transform: translate(0, 0);
     box-shadow: unset;
+  }
+  .main-sec__content h1 {
+    font-size: 2rem;
+  }
+  .main-sec__content p {
+    font-size: 1rem;
   }
   .main-sec__btn-div {
     position: static;

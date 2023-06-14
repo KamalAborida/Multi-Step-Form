@@ -12,13 +12,25 @@ const pricesAddOns = [[1, 10], [1, 10], [2, 20]]
 const stepContentObj = new stepsMod.Steps()
 
 function getNextStep() {
+  if (steps[2].classList.contains("active")) {
+    nextBtn.textContent = "Confirm"
+  }
+  else {
+    nextBtn.textContent = "Next Step"
+  }
+
   if (steps[3].classList.contains("active")) {
     changeContent(4)
+    nextBtn.remove()
     return
   }
 
   for (let i = 0; i <= steps.length; i++) {
     if (steps[i].classList.contains("active")) {
+      if (!errorHandling(i)) {
+        i--
+        break
+      }
       gatherData(i)
       changeStepCircle(i)
       changeContent(i + 1)
@@ -28,6 +40,42 @@ function getNextStep() {
       continue
     }
   }
+}
+
+function errorHandling(activeIndx) {
+  if (activeIndx == 0) {
+    let name = document.getElementById("name").value.trim()
+    let mail = document.getElementById("email").value.trim()
+    let phone = document.getElementById("phoneNumber").value.trim()
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const nameRegex = /^[a-zA-Z]+$/;
+    const phoneRegex = /^\d+$/;
+    console.log(name, mail, phone);
+
+    if(nameRegex.test(name)) {
+      document.querySelector(".error-name").classList.remove("error-active")
+      if(emailRegex.test(mail)) {
+        document.querySelector(".error-mail").classList.remove("error-active")
+        if(phoneRegex.test(phone)) {
+          document.querySelector(".error-number").classList.remove("error-active")
+        }
+        else {
+          document.querySelector(".error-number").classList.add("error-active")
+          return false
+        }
+      }
+      else {
+        document.querySelector(".error-mail").classList.add("error-active")
+        return false
+      }
+    }
+    else {
+      document.querySelector(".error-name").classList.add("error-active")
+      return false
+    }
+  }
+
+  return true
 }
 
 function activateCta(activeIndx) {
@@ -68,9 +116,24 @@ function activateCta(activeIndx) {
     else {
       return
     }
+    document.getElementById("change").addEventListener("click", resetPlan)
     return
   }
 }
+
+function resetPlan() {
+  totalPrice = 0
+  nextBtn.textContent = "Next Step"
+  steps.forEach((step, indx) => {
+    step.classList.remove("active")
+    if(indx == 1) {
+      step.classList.add("active")
+    }
+  })
+  changeContent(1)
+  activateCta(1)
+}
+
 
 function gatherData(activeIndx) {
   if (activeIndx == 0) {
@@ -140,7 +203,7 @@ function showRecipt() {
       let clonedAddOn = addOn.cloneNode(true)
       clonedAddOn.innerHTML = `
       <p class="recipt__label">${localStorage.getItem(`addOn${i}`)}</p>
-      <p class="recipt__addOns__price">${localStorage.getItem(
+      <p class="recipt__addOns__price">$${localStorage.getItem(
         `addOnPrice${i}`
       )}/<span class="paymentTime">Monthly</span></p>
       `

@@ -11,14 +11,17 @@ export class Steps {
       `,
       `
       <div class="infoDivs">
+        <p class="error error-name">Wrong name format</p>
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="e.g. Stephen King">
+        <input type="text" id="name" placeholder="e.g. Stephen">
       </div>
       <div class="infoDivs">
+        <p class="error error-mail">Incorrect email</p>
         <label for="email">Email</label>
         <input type="email" id="email" placeholder="e.g. stephenking@lorem.com">
       </div>
       <div class="infoDivs">
+        <p class="error error-number">Wrong number format</p>
         <label for="phoneNumber">Phone Number</label>
         <input type="number" id="phoneNumber" placeholder="e.g. +1 234 567 890">
       </div>
@@ -104,7 +107,7 @@ export class Steps {
       <div class="recipt">
         <div class="recipt__plan">
           <p class="recipt__plan__currentPlan">arcade (<span class="paymentTime">Monthly</span>)</p>
-          <a class="recipt__label link">change</a>
+          <a class="recipt__label link" id="change">change</a>
           <p class="recipt__plan__price">$9/<span class="paymentTime">Monthly</span></p>
         </div>
         <hr>
@@ -128,11 +131,13 @@ export class Steps {
     
     this.stepContent.set("4", [
       `
-      <img>
-      <h1>Thank you</h1>
+      <div class="thank-img">
+        <img src="./assets/images/icon-thank-you.svg">
+      </div>
+      <h1 class="thank-title">Thank you</h1>
       `,
       `
-      <div>
+      <div class="thank-content">
         Thank you! Thanks for confirming your subscription! We hope you have fun
         using our platform. If you ever need support, please feel free to email us
         at support@loremgaming.com.

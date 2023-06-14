@@ -9,6 +9,11 @@
 
   .link {
     text-decoration: underline;
+
+    &:hover {
+      cursor: pointer;
+      color: $marine-blue;
+    }
   }
 
   &__label {
