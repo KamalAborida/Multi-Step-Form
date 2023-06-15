@@ -7,23 +7,22 @@ const steps = [...document.querySelectorAll(".step")]
 const titleDiv = document.getElementById("titleDiv")
 const contentDiv = document.getElementById("mainDiv")
 let totalPrice = 0
-const pricesPlan = [[9, 90], [12, 120], [15, 150]]
-const pricesAddOns = [[1, 10], [1, 10], [2, 20]]
+const pricesPlan = [
+  [9, 90],
+  [12, 120],
+  [15, 150],
+]
+const pricesAddOns = [
+  [1, 10],
+  [1, 10],
+  [2, 20],
+]
 const stepContentObj = new stepsMod.Steps()
 
 function getNextStep() {
-  if (steps[2].classList.contains("active")) {
-    nextBtn.textContent = "Confirm"
-  }
-  else {
-    nextBtn.textContent = "Next Step"
-  }
-
-  if (steps[3].classList.contains("active")) {
-    changeContent(4)
-    nextBtn.remove()
-    return
-  }
+  toggleBackBtn()
+  toggleConfirmBtn()
+  thankTheUser()
 
   for (let i = 0; i <= steps.length; i++) {
     if (steps[i].classList.contains("active")) {
@@ -42,34 +41,98 @@ function getNextStep() {
   }
 }
 
+function goBack() {
+  toggleBackBtnForBackward()
+  removeConfirmText()
+
+  for (let i = 0; i <= steps.length; i++) {
+    console.log(steps[i]);
+    if (steps[i].classList.contains("active")) {
+      steps[i - 1].classList.add("active")
+      steps[i].classList.remove("active")
+      changeContent(i - 1)
+      activateCta(i - 1)
+      break
+    } else {
+      continue
+    }
+  }
+}
+
+function toggleBackBtnForBackward() {
+  if (
+    steps[3].classList.contains("active") ||
+    steps[2].classList.contains("active")
+  ) {
+    document.getElementById("goBack").classList.add("link-back-active")
+    document.getElementById("goBack").addEventListener("click", goBack)
+  } else {
+    document.getElementById("goBack").classList.remove("link-back-active")
+  }
+}
+
+function removeConfirmText() {
+  if (nextBtn.textContent == "Confirm") {
+    nextBtn.textContent = "Next Step"
+  }
+}
+
+function thankTheUser() {
+  if (steps[3].classList.contains("active")) {
+    changeContent(4)
+    nextBtn.remove()
+    return
+  }
+}
+
+function toggleConfirmBtn() {
+  if (steps[2].classList.contains("active")) {
+    nextBtn.textContent = "Confirm"
+  } else {
+    nextBtn.textContent = "Next Step"
+  }
+}
+
+function toggleBackBtn() {
+  if (
+    (steps[0].classList.contains("active") && errorHandling(0)) ||
+    steps[1].classList.contains("active") ||
+    steps[2].classList.contains("active")
+  ) {
+    document.getElementById("goBack").classList.add("link-back-active")
+    document.getElementById("goBack").addEventListener("click", goBack)
+  } else {
+    document.getElementById("goBack").classList.remove("link-back-active")
+  }
+}
+
 function errorHandling(activeIndx) {
   if (activeIndx == 0) {
     let name = document.getElementById("name").value.trim()
     let mail = document.getElementById("email").value.trim()
     let phone = document.getElementById("phoneNumber").value.trim()
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const nameRegex = /^[a-zA-Z]+$/;
-    const phoneRegex = /^\d+$/;
-    console.log(name, mail, phone);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const nameRegex = /[\s\S]+/g
+    const phoneRegex = /^\d+$/
+    console.log(name, mail, phone)
 
-    if(nameRegex.test(name)) {
+    if (nameRegex.test(name)) {
       document.querySelector(".error-name").classList.remove("error-active")
-      if(emailRegex.test(mail)) {
+      if (emailRegex.test(mail)) {
         document.querySelector(".error-mail").classList.remove("error-active")
-        if(phoneRegex.test(phone)) {
-          document.querySelector(".error-number").classList.remove("error-active")
-        }
-        else {
+        if (phoneRegex.test(phone)) {
+          document
+            .querySelector(".error-number")
+            .classList.remove("error-active")
+        } else {
           document.querySelector(".error-number").classList.add("error-active")
           return false
         }
-      }
-      else {
+      } else {
         document.querySelector(".error-mail").classList.add("error-active")
         return false
       }
-    }
-    else {
+    } else {
       document.querySelector(".error-name").classList.add("error-active")
       return false
     }
@@ -97,11 +160,15 @@ function activateCta(activeIndx) {
       let time = document.querySelectorAll(".paymentTime")
       time.forEach((element, indx) => {
         element.textContent = "Yearly"
-        element.closest(".addOn").attributes.localStorageItemPrice.value = `${pricesAddOns[indx][1]}`
-        element.closest(".addOn").querySelector(".addOn__price").querySelector("span").textContent = `${pricesAddOns[indx][1]}`
+        element.closest(
+          ".addOn"
+        ).attributes.localStorageItemPrice.value = `${pricesAddOns[indx][1]}`
+        element
+          .closest(".addOn")
+          .querySelector(".addOn__price")
+          .querySelector("span").textContent = `${pricesAddOns[indx][1]}`
       })
-    }
-    else {
+    } else {
       return
     }
     return
@@ -112,8 +179,7 @@ function activateCta(activeIndx) {
       time.forEach((element) => {
         element.textContent = "Yearly"
       })
-    }
-    else {
+    } else {
       return
     }
     document.getElementById("change").addEventListener("click", resetPlan)
@@ -126,14 +192,13 @@ function resetPlan() {
   nextBtn.textContent = "Next Step"
   steps.forEach((step, indx) => {
     step.classList.remove("active")
-    if(indx == 1) {
+    if (indx == 1) {
       step.classList.add("active")
     }
   })
   changeContent(1)
   activateCta(1)
 }
-
 
 function gatherData(activeIndx) {
   if (activeIndx == 0) {
@@ -257,14 +322,28 @@ function changePaymentState(e) {
       element.textContent = "Monthly"
       document.getElementById("monthly").classList.add("active-paying-time")
       document.getElementById("yearly").classList.remove("active-paying-time")
-      element.closest(".plan").querySelector("div").attributes.planPrice.value = `${pricesPlan[indx][0]}`
-      element.closest(".plan").querySelector(".plan-price").querySelector("span").textContent = `${pricesPlan[indx][0]}`
+      element
+        .closest(".plan")
+        .querySelector(
+          "div"
+        ).attributes.planPrice.value = `${pricesPlan[indx][0]}`
+      element
+        .closest(".plan")
+        .querySelector(".plan-price")
+        .querySelector("span").textContent = `${pricesPlan[indx][0]}`
     } else {
       element.textContent = "Yearly"
       document.getElementById("monthly").classList.remove("active-paying-time")
       document.getElementById("yearly").classList.add("active-paying-time")
-      element.closest(".plan").querySelector("div").attributes.planPrice.value = `${pricesPlan[indx][1]}`
-      element.closest(".plan").querySelector(".plan-price").querySelector("span").textContent = `${pricesPlan[indx][1]}`
+      element
+        .closest(".plan")
+        .querySelector(
+          "div"
+        ).attributes.planPrice.value = `${pricesPlan[indx][1]}`
+      element
+        .closest(".plan")
+        .querySelector(".plan-price")
+        .querySelector("span").textContent = `${pricesPlan[indx][1]}`
     }
   })
 }

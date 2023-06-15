@@ -1,0 +1,21 @@
+.link-back {
+  color: $cool-gray;
+  text-decoration: none;
+  font-weight: map-get($font-weights, 'normal');
+  display: none;
+
+  &:hover {
+    color: $light-gray;
+    cursor: pointer;
+  }
+}
+
+.space {
+  width: 50px;
+  height: 10px;
+  // border: 1px solid black;
+}
+
+.link-back-active {
+  display: block;
+}

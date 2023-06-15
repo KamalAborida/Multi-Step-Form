@@ -377,6 +377,25 @@ html {
   line-height: 1.8em;
 }
 
+.link-back {
+  color: hsl(231, 11%, 63%);
+  text-decoration: none;
+  display: none;
+}
+.link-back:hover {
+  color: hsl(229, 24%, 87%);
+  cursor: pointer;
+}
+
+.space {
+  width: 50px;
+  height: 10px;
+}
+
+.link-back-active {
+  display: block;
+}
+
 .sidebar {
   background: url("../assets/images/bg-sidebar-mobile.svg");
   background-repeat: no-repeat;
@@ -451,11 +470,12 @@ html {
 }
 .main-sec__btn-div {
   position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   bottom: 0;
   width: 100%;
   background-color: white;
-  display: flex;
-  justify-content: flex-end;
   padding: 1em;
   box-shadow: 1px -1px 20px 1px rgba(0, 0, 0, 0.11);
 }
@@ -496,6 +516,9 @@ html {
     width: 100%;
     background-color: unset;
     box-shadow: unset;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 @media screen and (min-width: 1300px) {
